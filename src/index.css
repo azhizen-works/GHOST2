@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Add this CSS to your global stylesheet (e.g., index.css or App.css) */
+/* Hide scrollbars cross-browser */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+
+ /* index.css or a global CSS file (must be included in your project) */
+
+@keyframes scroll-vertical {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+.animate-scroll-vertical {
+  animation: scroll-vertical 30s linear infinite;
+  display: inline-block;
+  white-space: normal;
+  height: max-content;
+}
+
+/* Optional: Hide scrollbar in Tailwind-compatible way */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Adjust animation when container is too short */
+@media (max-height: 600px) {
+  .animate-scroll-vertical {
+    animation-duration: 40s;
+  }
+}
+
