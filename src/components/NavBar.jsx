@@ -19,18 +19,18 @@ const NavBar = () => {
 
   return (
     <>
-      <header className="flex items-center justify-between px-6 sm:px-14 py-6 backdrop-blur-md bg-[#fbfbfe] text-black rounded-b-lg z-50 sticky top-0">
+      <header className="flex items-center justify-between px-6 sm:px-14 py-6 backdrop-blur-md bg-[#1a1d2b] text-black z-50 sticky top-0">
         <div className="flex items-center space-x-3 cursor-pointer" onClick={()=> navigate(`/`)}>
           <div className="text-2xl">📖</div>
           <div>
-            <h1 className="text-xl font-bold leading-none mb-3">ExamAce</h1>
-            <p className="text-xs text-black -mt-1">Dream • Learn • Achieve</p>
+            <h1 className="text-xl font-bold leading-none mb-3 text-white">GHOST</h1>
+            <p className="text-xs text-white -mt-1">Dream • Learn • Achieve</p>
           </div>
         </div>
 
         <nav className="hidden md:flex gap-6 text-sm items-center text-black relative">
           {/* Home */}
-          <div className="relative">
+          <div className="relative text-white">
             <button
               onClick={() => {
                 setActiveLink('Home');
@@ -45,11 +45,11 @@ const NavBar = () => {
           </div>
 
           {/* Exams */}
-          <div className="relative">
+          <div className="relative text-white">
             <button
               onClick={() => {
                 setActiveLink('Exams');
-                navigate('/exams');
+                navigate('/examCategory');
               }}
               // className={`px-3 py-1 rounded-md transition ${
               //   activeLink === 'Exams' ? 'bg-slate-300 text-white shadow-inner' : 'hover:text-black'
@@ -60,7 +60,7 @@ const NavBar = () => {
           </div>
 
           {/* Resources */}
-          <div className="relative">
+          <div className="relative text-white">
             <button
               onClick={() => {
                 setActiveLink('Resources');
@@ -71,7 +71,7 @@ const NavBar = () => {
               //   activeLink === 'Resources' ? 'bg-slate-300 text-white shadow-inner' : 'hover:text-black'
               // }`}
             >
-              Resources <span className="text-xs ml-1">▼</span>
+              Resources
             </button>
 
             {/* Dropdown for Resources
@@ -92,7 +92,7 @@ const NavBar = () => {
           </div>
 
           {/* Contest */}
-          <div className="relative">
+          <div className="relative text-white">
             <button
               onClick={() => {
                 navigate('/loginSignUp');
@@ -108,7 +108,7 @@ const NavBar = () => {
           </div>
 
           {/* Contact */}
-          <div className="relative">
+          <div className="relative text-white">
             <button
               onClick={() => {
                 setActiveLink('Contact');

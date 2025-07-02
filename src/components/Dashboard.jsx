@@ -12,6 +12,7 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { useNavigate } from "react-router-dom";
 
+// ...[data & icons unchanged for brevity]...
 const learningData = [
   {
     title: "UPSC Civil Services",
@@ -198,29 +199,9 @@ const EditIcon = () => (
   </svg>
 );
 
-// -- COMPONENT --
 export default function Dashboard() {
-  const [profilePic, setProfilePic] = useState("/image1"); // from user upload!
+  const [profilePic, setProfilePic] = useState("/image1");
   const fileInputRef = useRef();
-
-  // Example handlers:
-  const handleContinueLearning = (title) => alert(`Continue learning: ${title}`);
-  const handleReviewTest = (testName) => alert(`Reviewing test: ${testName}`);
-  const handleStartTest = (testName) => alert(`Starting test: ${testName}`);
-  const handleTakeMockTest = () => alert("Taking a new Mock Test!");
-  const handleJoinStudyGroup = () => alert("Joining Study Group!");
-  const handleViewCertificates = () => alert("Viewing Certificates!");
-  const handleEditProfile = () => fileInputRef.current?.click();
-  const handleProfilePicChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => setProfilePic(reader.result);
-      reader.readAsDataURL(file);
-    }
-  };
-
-
   const navigate = useNavigate();
 
   return (
@@ -228,166 +209,109 @@ export default function Dashboard() {
       <NavBar />
       <div className="bg-gray-50 min-h-screen p-4 mb-10">
         {/* Top Section */}
-        <div className="flex justify-between items-start mb-7">
+        <div className="flex flex-col lg:flex-row justify-between gap-6 items-start mb-7 max-w-7xl mx-auto">
           {/* Welcome/Stats */}
-          <div className="ml-32">
-            <div className="flex items-center mb-1">
-              <h1 className="text-[2rem] sm:text-3xl font-bold mr-4">
+          <div className="lg:ml-10 w-full lg:w-2/3">
+            <div className="flex flex-col sm:flex-row sm:items-center mb-1 gap-2">
+              <h1 className="text-[1.75rem] sm:text-3xl font-bold">
                 Welcome back, Priya!
               </h1>
               <span className="flex items-center px-3 py-1 rounded-full hover:scale-105 bg-blue-100 text-blue-600 text-sm font-semibold ml-1 gap-1 border border-blue-100 shadow-sm">
-                <FaFire />
-                1 Day Streak
+                <FaFire /> 1 Day Streak
               </span>
             </div>
             <div className="text-gray-600 text-sm -mt-1 mb-6">
               Ready to continue your exam preparation journey?
             </div>
-            <div className="flex gap-6 w32">
-              {/* Study Hours */}
-              <div className="bg-white shadow rounded-xl px-8 py-4 flex flex-col items-center min-w-[140px]">
-                <span className="text-gray-500 text-xs mb-2">Study Hours</span>
-                <span className="text-2xl font-bold mb-2">127</span>
-                <span className="bg-blue-100 p-2 rounded-lg">
-                  <ClockIcon />
-                </span>
-              </div>
-              {/* Tests Completed */}
-              <div className="bg-white shadow rounded-xl px-8 py-4 flex flex-col items-center min-w-[140px]">
-                <span className="text-gray-500 text-xs mb-2">Tests Completed</span>
-                <span className="text-2xl font-bold mb-2">23</span>
-                <span className="bg-purple-200 p-2 rounded-lg">
-                  <CiTrophy />
-                </span>
-              </div>
-              {/* Current Rank */}
-              <div className="bg-white shadow rounded-xl px-8 py-4 flex flex-col items-center min-w-[140px]">
-                <span className="text-gray-500 text-xs mb-2">Current Rank</span>
-                <span className="text-2xl font-bold mb-2">#342</span>
-                <span className="bg-green-100 p-2 rounded-lg">
-                  <RankIcon />
-                </span>
-              </div>
+            <div className="flex flex-wrap gap-4">
+              {/* Cards */}
+              {[{ label: "Study Hours", value: 127, icon: <ClockIcon />, bg: "bg-blue-100" }, { label: "Tests Completed", value: 23, icon: <CiTrophy />, bg: "bg-purple-200" }, { label: "Current Rank", value: "#342", icon: <RankIcon />, bg: "bg-green-100" }].map(({ label, value, icon, bg }) => (
+                <div className="bg-white shadow rounded-xl px-6 py-4 flex flex-col items-center flex-1 min-w-[120px]" key={label}>
+                  <span className="text-gray-500 text-xs mb-2 text-center">{label}</span>
+                  <span className="text-2xl font-bold mb-2">{value}</span>
+                  <span className={`${bg} p-2 rounded-lg`}>{icon}</span>
+                </div>
+              ))}
             </div>
           </div>
           {/* Profile Image */}
-          <div className="flex flex-col items-center min-w-[360px] ">
-            <img
-              src={profilePic}
-              alt="User DP"
-              className="w-28 h-28 rounded-full object-cover border-4 border-white shadow-lg"
-              style={{ boxShadow: "0 2px 14px 0 rgba(0,0,0,0.12)" }}
-            />
-            <button
-              className="text-gray-700 hover:scale-105 text-xs mt-2 underline flex items-center gap-1"
-              onClick={handleEditProfile}
-            >
-              Edit
-              <AiOutlineEdit />
+          <div className="flex flex-col items-center w-full lg:w-1/3">
+            <img src={profilePic} alt="User DP" className="w-28 h-28 rounded-full object-cover border-4 border-white shadow-lg" />
+            <button className="text-gray-700 hover:scale-105 text-xs mt-2 underline flex items-center gap-1" onClick={() => fileInputRef.current?.click()}>
+              Edit <AiOutlineEdit />
             </button>
-            <input
-              type="file"
-              accept="image/*"
-              ref={fileInputRef}
-              onChange={handleProfilePicChange}
-              style={{ display: "none" }}
-            />
+            <input type="file" accept="image/*" ref={fileInputRef} onChange={(e) => {
+              const file = e.target.files[0];
+              if (file) {
+                const reader = new FileReader();
+                reader.onloadend = () => setProfilePic(reader.result);
+                reader.readAsDataURL(file);
+              }
+            }} hidden />
           </div>
         </div>
+
         {/* Main Content */}
-        <div className="flex gap-7">
-          {/* Main Left: Learning and Performance */}
+        <div className="flex flex-col lg:flex-row gap-7 max-w-7xl mx-auto">
+          {/* Left */}
           <div className="flex-1">
             {/* Continue Learning */}
             <div className="bg-white rounded-2xl shadow p-5 mb-6">
               <h2 className="font-semibold text-lg mb-2 flex items-center">
-                <span className="mr-2">
-                  <IoBookOutline />
-                </span>
-                Continue Learning
+                <IoBookOutline className="mr-2" /> Continue Learning
               </h2>
-              {learningData.map((item, i) => (
+              {learningData.map((item) => (
                 <div key={item.title} className="mb-5">
                   <div className="flex justify-between items-center">
                     <span className="font-medium">{item.title}</span>
-                    <span className="text-xs text-gray-500 font-semibold">
-                      {item.progress}/{item.total}
-                    </span>
+                    <span className="text-xs text-gray-500 font-semibold">{item.progress}/{item.total}</span>
                   </div>
                   <div className="w-full h-3 bg-gray-200 rounded-lg mt-1 mb-1.5">
-                    <div
-                      className="h-3 rounded-lg bg-gradient-to-r from-slate-800 to-gray-600"
-                      style={{ width: `${item.percentage}%` }}
-                    ></div>
+                    <div className="h-3 rounded-lg bg-gradient-to-r from-slate-800 to-gray-600" style={{ width: `${item.percentage}%` }}></div>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-xs text-gray-400">{item.percentageLabel}</span>
-                    <button
-                      className="px-4 py-1 rounded-xl  hover:scale-105 bg-gradient-to-r from-pink-400 to-purple-400 text-white text-sm font-semibold shadow"
-                      onClick={() => handleContinueLearning(item.title)}
-                    >
-                      Continue
+                    <button onClick={() => alert(`Continue learning: ${item.title}`)} className="px-4 py-1 rounded-xl hover:scale-105 bg-gradient-to-r from-pink-400 to-purple-400 text-white text-sm font-semibold shadow">Continue</button>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Recent Test Performance */}
+            <div className="bg-white rounded-2xl shadow p-5">
+              <h2 className="font-semibold text-lg mb-3 flex items-center">
+                <GoGraph className="mr-2" /> Recent Test Performance
+              </h2>
+              {tests.map((test, i) => (
+                <div key={test.name} className={`flex flex-col sm:flex-row sm:items-center justify-between py-3 ${i !== tests.length - 1 ? "border-b" : ""}`}>
+                  <div>
+                    <div className="font-medium">{test.name}</div>
+                    <div className="text-xs text-gray-400">{test.time}</div>
+                  </div>
+                  <div className="flex items-center gap-3 mt-2 sm:mt-0">
+                    {test.score && <span className={`text-xs font-bold rounded-lg px-2 py-1 ${test.scoreColor}`}>{test.score}</span>}
+                    <button onClick={() => alert(`${test.showReview ? "Reviewing" : "Starting"} test: ${test.name}`)} className={`px-3 py-1 text-sm font-semibold rounded-lg hover:scale-105 ${test.showReview ? "bg-gray-100 text-gray-800 border border-gray-200" : "bg-gradient-to-r from-pink-400 to-purple-400 text-white flex items-center gap-1"}`}>
+                      {!test.showReview && <PlayIcon />} {test.showReview ? "Review" : "Start"}
                     </button>
                   </div>
                 </div>
               ))}
             </div>
-            {/* Recent Test Performance */}
-            <div className="bg-white rounded-2xl shadow p-5">
-              <h2 className="font-semibold text-lg mb-3 flex items-center">
-                <span className="mr-2">
-                  <GoGraph />
-                </span>
-                Recent Test Performance
-              </h2>
-              {tests.map((test, i) => (
-                <div className={`flex items-center justify-between py-2 ${i !== tests.length - 1 ? "border-b" : ""}`} key={test.name}>
-                  <div>
-                    <div className="font-medium">{test.name}</div>
-                    <div className="text-xs text-gray-400">{test.time}</div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    {test.score && (
-                      <span className={`text-xs font-bold rounded-lg px-2 py-1 ${test.scoreColor}`}>{test.score}</span>
-                    )}
-                    {test.showReview ? (
-                      <button
-                        className="bg-gray-100 text-gray-800 px-3 py-1 rounded-lg hover:scale-105 text-sm font-semibold shadow border border-gray-200"
-                        onClick={() => handleReviewTest(test.name)}
-                      >
-                        Review
-                      </button>
-                    ) : (
-                      <button
-                        className="bg-gradient-to-r from-pink-400 to-purple-400 text-white px-3 py-1 rounded-lg hover:scale-105 text-sm font-semibold shadow flex items-center gap-1"
-                        onClick={() => handleStartTest(test.name)}
-                      >
-                        <PlayIcon />
-                        Start
-                      </button>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
+
           {/* Right Column */}
-          <div className="flex flex-col gap-6 w-[330px]">
+          <div className="flex flex-col gap-6 w-full lg:w-[330px]">
+            {/* Leaderboard Card */}
+            <div className="cursor-pointer bg-red-300 rounded-lg h-20 flex items-center justify-center" onClick={() => navigate(`/leaderBoard`)}>
+              <GrNotes className="mr-2" />
+              <span className="font-semibold text-lg">Leader Board</span>
+            </div>
+
             {/* Upcoming Events */}
-            <h2 className="font-semibold text-lg mb-3 flex items-center justify-center bg-red-300 rounded-lg h-20 cursor-pointer" onClick={() => navigate(`/leaderBoard`)}>
-              <span className="mr-2">
-                <GrNotes />
-              </span>
-              Leader Board
-            </h2>
             <div className="bg-white rounded-2xl shadow p-5">
               <h2 className="font-semibold text-lg mb-3 flex items-center">
-                <span className="mr-2">
-                  <GrNotes />
-                </span>
-                Upcoming Events
+                <GrNotes className="mr-2" /> Upcoming Events
               </h2>
-
               {events.map((event) => (
                 <div className="flex items-center justify-between mb-2 last:mb-0" key={event.title}>
                   <div>
@@ -400,33 +324,23 @@ export default function Dashboard() {
                 </div>
               ))}
             </div>
+
             {/* Quick Actions */}
             <div className="bg-white rounded-2xl shadow p-5">
               <h2 className="font-semibold text-lg mb-3">Quick Actions</h2>
-              <button
-                className="w-full bg-gradient-to-r from-pink-500 to-purple-400 text-white font-semibold rounded-lg hover:scale-105 py-2 mb-2 shadow flex items-center justify-center gap-2"
-                onClick={handleTakeMockTest}
-              >
-                <TrophyIcon />
-                Take Mock Test
+              <button onClick={() => alert("Taking a new Mock Test!")} className="w-full bg-gradient-to-r from-pink-500 to-purple-400 text-white font-semibold rounded-lg hover:scale-105 py-2 mb-2 shadow flex items-center justify-center gap-2">
+                <TrophyIcon /> Take Mock Test
               </button>
-              <button
-                className="w-full flex items-center gap-2 bg-gray-100 py-2 rounded-lg hover:scale-105 mb-2 font-semibold text-gray-700 shadow"
-                onClick={handleJoinStudyGroup}
-              >
-                <FaUserGroup />
-                Join Study Group
+              <button onClick={() => alert("Joining Study Group!")} className="w-full flex items-center gap-2 bg-gray-100 py-2 rounded-lg hover:scale-105 mb-2 font-semibold text-gray-700 shadow">
+                <FaUserGroup /> Join Study Group
               </button>
-              <button
-                className="w-full flex items-center gap-2 bg-gray-100 py-2 rounded-lg hover:scale-105 font-semibold text-gray-700 shadow"
-                onClick={handleViewCertificates}
-              >
-                <PiCertificateLight />
-                View Certificates
+              <button onClick={() => alert("Viewing Certificates!")} className="w-full flex items-center gap-2 bg-gray-100 py-2 rounded-lg hover:scale-105 font-semibold text-gray-700 shadow">
+                <PiCertificateLight /> View Certificates
               </button>
             </div>
+
             {/* Streak Card */}
-            <div className="rounded-2xl hover:scale-105 p-5 text-white bg-gradient-to-r from-purple-600 to-pink-500 shadow flex flex-col items-center">
+            <div className="rounded-2xl hover:scale-105 p-5 text-white bg-gradient-to-r from-purple-600 to-pink-500 shadow flex flex-col items-center text-center">
               <IoIosTrophy />
               <div className="text-xl font-bold mb-1">7-Day Streak!</div>
               <div className="font-medium">You're on fire! Keep up the great work.</div>
