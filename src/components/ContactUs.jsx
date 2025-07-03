@@ -92,7 +92,7 @@ const FAQAccordion = () => {
           onClick={() => setActiveTag("all")}
           className={`px-4 py-1 rounded-full border text-sm font-semibold ${activeTag === "all"
             ? "bg-blue-700 text-white border-blue-700"
-            : "bg-white text-gray-800 border-gray-300"
+            : "bg-white text-[#272727] border-gray-300"
             }`}
         >
           All
@@ -166,14 +166,14 @@ const ContactPage = () => {
   return (
     <>
       <NavBar />
-      <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 py-10 px-2">
+      <div className="min-h-screen bg-[#e0e0e04b] py-10 px-2">
 
         {/* Header */}
         <div className="max-w-7xl mx-auto mb-10">
-          <h1 className="text-4xl font-bold text-blue-900 mb-2 text-center">
+          <h1 className="text-4xl font-bold text-[#272727] mb-2 text-center">
             Contact Us
           </h1>
-          <div className="text-lg text-blue-900 text-center">
+          <div className="text-lg text-[#272727] text-center">
             <p>Have questions about our exam preparation programs?</p>
             <p>
               We're here to help you succeed. Reach out to our team of experts for personalized guidance.
@@ -185,7 +185,7 @@ const ContactPage = () => {
           {/* Contact Form Box */}
           <div className="md:w-2/5 w-full">
             <div className="bg-white rounded-lg shadow-sm border border-blue-100 p-8">
-              <h2 className="text-2xl font-bold text-blue-900 mb-2">
+              <h2 className="text-2xl font-bold text-[#272727]">
                 Send us a Message
               </h2>
               <p className="text-gray-700 mb-6">
@@ -194,7 +194,7 @@ const ContactPage = () => {
               <form className="space-y-5">
                 <div className="md:flex md:gap-4">
                   <div className="flex-1 mb-4 md:mb-0">
-                    <label className="block font-semibold mb-1 text-gray-800">
+                    <label className="block font-semibold mb-1 text-[#272727]">
                       Full Name <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -204,7 +204,7 @@ const ContactPage = () => {
                     />
                   </div>
                   <div className="flex-1">
-                    <label className="block font-semibold mb-1 text-gray-800">
+                    <label className="block font-semibold mb-1 text-[#272727]">
                       Email Address <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -215,7 +215,7 @@ const ContactPage = () => {
                   </div>
                 </div>
                 <div>
-                  <label className="block font-semibold mb-1 text-gray-800">
+                  <label className="block font-semibold mb-1 text-[#272727]">
                     Subject <span className="text-red-500">*</span>
                   </label>
                   <select
@@ -232,7 +232,7 @@ const ContactPage = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="block font-semibold mb-1 text-gray-800">
+                  <label className="block font-semibold mb-1 text-[#272727]">
                     Message <span className="text-red-500">*</span>
                   </label>
                   <textarea

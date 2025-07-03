@@ -122,8 +122,8 @@ const ClockIcon = () => (
 const TrophyIcon = () => (
   // Trophy for Tests Completed
   <svg width={20} height={20} fill="none" viewBox="0 0 24 24">
-    <rect x="3" y="4" width="18" height="16" rx="2" stroke="#a21caf" strokeWidth="2" />
-    <path d="M9 12l2 2 4-4" stroke="#a21caf" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <rect x="3" y="4" width="18" height="16" rx="2" stroke="#ffffff" strokeWidth="2" />
+    <path d="M9 12l2 2 4-4" stroke="#ffffff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
@@ -153,8 +153,8 @@ const ChartIcon = () => (
 const PlayIcon = () => (
   // Play icon for Start button
   <svg width={16} height={16} fill="none" viewBox="0 0 24 24">
-    <circle cx="12" cy="12" r="10" fill="#a21caf" />
-    <polygon points="10,8 16,12 10,16" fill="#fff" />
+    <circle cx="12" cy="12" r="10" fill="#fff" />
+    <polygon points="10,8 16,12 10,16" fill="#000" />
   </svg>
 );
 
@@ -207,7 +207,7 @@ export default function Dashboard() {
   return (
     <>
       <NavBar />
-      <div className="bg-gray-50 min-h-screen p-4 mb-10">
+      <div className="bg-[#e0e0e04b] min-h-screen p-4">
         {/* Top Section */}
         <div className="flex flex-col lg:flex-row justify-between gap-6 items-start mb-7 max-w-7xl mx-auto">
           {/* Welcome/Stats */}
@@ -271,7 +271,7 @@ export default function Dashboard() {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-xs text-gray-400">{item.percentageLabel}</span>
-                    <button onClick={() => alert(`Continue learning: ${item.title}`)} className="px-4 py-1 rounded-xl hover:scale-105 bg-gradient-to-r from-pink-400 to-purple-400 text-white text-sm font-semibold shadow">Continue</button>
+                    <button onClick={() => alert(`Continue learning: ${item.title}`)} className="px-4 py-1 rounded-md hover:scale-105 bg-[#2d3142] text-white text-sm font-semibold shadow">Continue</button>
                   </div>
                 </div>
               ))}
@@ -290,7 +290,7 @@ export default function Dashboard() {
                   </div>
                   <div className="flex items-center gap-3 mt-2 sm:mt-0">
                     {test.score && <span className={`text-xs font-bold rounded-lg px-2 py-1 ${test.scoreColor}`}>{test.score}</span>}
-                    <button onClick={() => alert(`${test.showReview ? "Reviewing" : "Starting"} test: ${test.name}`)} className={`px-3 py-1 text-sm font-semibold rounded-lg hover:scale-105 ${test.showReview ? "bg-gray-100 text-gray-800 border border-gray-200" : "bg-gradient-to-r from-pink-400 to-purple-400 text-white flex items-center gap-1"}`}>
+                    <button onClick={() => alert(`${test.showReview ? "Reviewing" : "Starting"} test: ${test.name}`)} className={`px-3 py-1 text-sm font-semibold rounded-lg hover:scale-105 ${test.showReview ? "bg-gray-100 text-gray-800 border border-gray-200" : "bg-[#2d3142] text-white flex items-center gap-1"}`}>
                       {!test.showReview && <PlayIcon />} {test.showReview ? "Review" : "Start"}
                     </button>
                   </div>
@@ -302,7 +302,7 @@ export default function Dashboard() {
           {/* Right Column */}
           <div className="flex flex-col gap-6 w-full lg:w-[330px]">
             {/* Leaderboard Card */}
-            <div className="cursor-pointer bg-red-300 rounded-lg h-20 flex items-center justify-center" onClick={() => navigate(`/leaderBoard`)}>
+            <div className="cursor-pointer bg-slate-400 rounded-lg h-20 flex items-center justify-center" onClick={() => navigate(`/leaderBoard`)}>
               <GrNotes className="mr-2" />
               <span className="font-semibold text-lg">Leader Board</span>
             </div>
@@ -328,8 +328,8 @@ export default function Dashboard() {
             {/* Quick Actions */}
             <div className="bg-white rounded-2xl shadow p-5">
               <h2 className="font-semibold text-lg mb-3">Quick Actions</h2>
-              <button onClick={() => alert("Taking a new Mock Test!")} className="w-full bg-gradient-to-r from-pink-500 to-purple-400 text-white font-semibold rounded-lg hover:scale-105 py-2 mb-2 shadow flex items-center justify-center gap-2">
-                <TrophyIcon /> Take Mock Test
+              <button onClick={() => alert("Taking a new Mock Test!")} className="w-full bg-[#2d3142] text-white font-semibold rounded-lg hover:scale-105 py-2 mb-2 shadow flex items-center justify-center gap-2">
+                <TrophyIcon  /> Take Mock Test
               </button>
               <button onClick={() => alert("Joining Study Group!")} className="w-full flex items-center gap-2 bg-gray-100 py-2 rounded-lg hover:scale-105 mb-2 font-semibold text-gray-700 shadow">
                 <FaUserGroup /> Join Study Group

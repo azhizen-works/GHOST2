@@ -1,7 +1,6 @@
 import './App.css'
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import LandingPage from './components/LandingPage';
-import Exams from './components/Exams';
 import Blogs from './components/Blogs';
 import Dashboard from './components/Dashboard'
 import ContestPage from './components/ContestPage';
@@ -16,7 +15,6 @@ function App() {
     <Router>
       <Routes>
         <Route path='/' element={<LandingPage />} />
-        <Route path='/exams' element={<Exams />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/contest' element={<ContestPage />} />
