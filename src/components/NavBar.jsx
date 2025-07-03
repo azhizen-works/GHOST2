@@ -7,7 +7,7 @@ const NavBar = () => {
 
   return (
     <>
-      <header className="flex items-center justify-between px-6 sm:px-14 py-6 backdrop-blur-md bg-[#F8FAFC] border shadow-md text-black z-50 sticky top-0">
+      <header className="flex items-center justify-between px-6 sm:px-14 py-6 backdrop-blur-md bg-[#F8FAFC] border shadow-md text-black z-50 sticky top-0 font-GentiumBookPlus">
         <div className="flex items-center space-x-3 cursor-pointer" onClick={() => navigate(`/`)}>
           <div className="text-2xl">📖</div>
           <div>

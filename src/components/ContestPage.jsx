@@ -87,7 +87,7 @@ export default function ContestPage() {
     <div className="min-h-screen font-sans bg-[#e0e0e04b]">
       <Navbar />
 
-      <div className="px-4 sm:px-6 lg:px-12 py-6">
+      <div className="px-4 sm:px-6 lg:px-12 py-6 font-GentiumBookPlus">
         <section className="text-center mb-8">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 mb-2">Live Contest Arena</h2>
           <p className="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base">

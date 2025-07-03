@@ -198,7 +198,7 @@ export default function Leaderboard() {
   return (
     <>
       <NavBar />
-      <div className="min-h-screen bg-[#e0e0e04b] py-8 px-2 md:px-12">
+      <div className="min-h-screen bg-[#e0e0e04b] py-8 px-2 md:px-12 font-GentiumBookPlus">
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-[#272727]">

@@ -54,7 +54,7 @@ export default function AuthPage({ onClose }) {
   return (
     <>
       <NavBar />
-      <div className="min-h-screen py-10 px-4 flex items-center justify-center bg-[#e0e0e04b]">
+      <div className="min-h-screen py-10 px-4 flex items-center justify-center bg-[#e0e0e04b] font-GentiumBookPlus">
       <div
         className={`relative bg-white/10 backdrop-blur-xl border border-white rounded-xl w-full ${isLogin ? 'max-w-xl' : 'max-w-3xl'
           } p-6 md:p-8 text-white shadow-lg`}

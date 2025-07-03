@@ -85,7 +85,7 @@ const FAQAccordion = () => {
   }, [activeTag]);
 
   return (
-    <div className="w-full">
+    <div className="w-full font-GentiumBookPlus">
       {/* Tag Filter Buttons */}
       <div className="flex flex-wrap gap-2 mb-4">
         <button
@@ -166,7 +166,7 @@ const ContactPage = () => {
   return (
     <>
       <NavBar />
-      <div className="min-h-screen bg-[#e0e0e04b] py-10 px-2">
+      <div className="min-h-screen bg-[#e0e0e04b] py-10 px-2 font-GentiumBookPlus">
 
         {/* Header */}
         <div className="max-w-7xl mx-auto mb-10">

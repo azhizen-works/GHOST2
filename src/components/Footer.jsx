@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <>
       {/* Footer */}
-      <footer className="bg-[#bcccdc55] py-10 px-6 text-sm text-[#272727]">
+      <footer className="bg-[#bcccdc55] py-10 px-6 text-sm text-[#272727] font-GentiumBookPlus">
         <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Logo & Description */}
           <div>

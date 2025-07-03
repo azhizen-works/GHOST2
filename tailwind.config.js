@@ -5,7 +5,14 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        CedarvilleCursive:["Cedarville Cursive", 'cursive'],
+        Volkhov:["Volkhov", 'serif'],
+        GentiumBookPlus:["Gentium Book Plus", 'serif'],
+        Felipa:["Felipa", 'serif']
+      }
+    },
   },
   plugins: [],
 }

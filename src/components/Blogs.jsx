@@ -52,6 +52,21 @@ const podcastsBySection = {
     title: "Meditation for Exam Stress",
     description: "A guided meditation podcast to help you focus and relax.",
     url: "https://www.sample-videos.com/audio/mp3/rock.mp3"
+  },
+  "stress-management": {
+    title: "Meditation for Exam Stress",
+    description: "A guided meditation podcast to help you focus and relax.",
+    url: "https://www.sample-videos.com/audio/mp3/rock.mp3"
+  },
+  "stress-management": {
+    title: "Meditation for Exam Stress",
+    description: "A guided meditation podcast to help you focus and relax.",
+    url: "https://www.sample-videos.com/audio/mp3/rock.mp3"
+  },
+  "stress-management": {
+    title: "Meditation for Exam Stress",
+    description: "A guided meditation podcast to help you focus and relax.",
+    url: "https://www.sample-videos.com/audio/mp3/rock.mp3"
   }
 };
 
@@ -70,6 +85,16 @@ const currentAffairs = [
     title: "NASA-ISRO Satellite Collaboration",
     description: "NISAR satellite project will launch by 2026 to monitor Earth's ecosystem.",
     date: "June 28, 2025"
+  },
+  {
+    title: "NEET 2025 Delayed by One Week",
+    description: "Due to flood conditions in northern India, NEET exam postponed to July 10.",
+    date: "June 27, 2025"
+  },
+  {
+    title: "NEET 2025 Delayed by One Week",
+    description: "Due to flood conditions in northern India, NEET exam postponed to July 10.",
+    date: "June 27, 2025"
   },
   {
     title: "NEET 2025 Delayed by One Week",
@@ -159,10 +184,10 @@ export default function Blogs() {
         />
       </div>
 
-      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-5 mb-12">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8 py-5 mb-12 font-GentiumBookPlus">
         {/* Header */}
         <div className="flex gap-1 hover:text-blue-500 text-blue-500 p-2 rounded-md w-fit cursor-pointer"
-             onClick={() => navigate(`/examCategory`)}>
+          onClick={() => navigate(`/examCategory`)}>
           <span className="text-sm font-semibold flex items-center"><MdArrowBackIos /></span>
           <span className="text-sm font-semibold">Back to Syllabus</span>
         </div>
@@ -227,15 +252,24 @@ export default function Blogs() {
 
           {/* Sticky Right Panel */}
           <div className="space-y-10 sticky top-28 self-start hidden lg:block">
-            <Card className="p-4">
+            {/* Current Affairs Card */}
+            <Card className="p-4 h-96">
               <h3 className="text-xl font-semibold mb-4 text-gray-800">📰 Current Affairs</h3>
-              <div className="space-y-4">{currentAffairsMemo}</div>
+              {/* Make this inner div scrollable */}
+              <div className="space-y-4 overflow-y-auto h-[18rem] pr-2 scrollbar-none">
+                {currentAffairsMemo}
+              </div>
             </Card>
-            <Card className="p-4">
+            {/* Podcast Card */}
+            <Card className="p-4 h-96">
               <h3 className="text-xl font-semibold mb-4 text-gray-800">🎵 Podcasts</h3>
-              <div className="space-y-4">{podcastCards}</div>
+              <div className="space-y-4 overflow-y-auto h-[18rem] pr-2 scrollbar-none">
+                {podcastCards}
+              </div>
             </Card>
+
           </div>
+
         </div>
       </div>
 

@@ -260,7 +260,7 @@ export default function ExamCategory() {
     <>
 
       <NavBar />
-      <div className="flex flex-col lg:flex-row min-h-screen p-10 bg-[#e0e0e04b]">
+      <div className="flex flex-col lg:flex-row min-h-screen p-10 bg-[#e0e0e04b] font-GentiumBookPlus">
         {/* Mobile Toggle Button */}
         <div className="lg:hidden flex justify-between items-center p-4 bg-white shadow">
           <h2 className="text-lg font-semibold">Exam Categories</h2>

@@ -93,7 +93,7 @@ export default function LandingPage() {
   return (
     <>
       <NavBar />
-      <div className="min-h-screen font-sans overflow-x-hidden text-white">
+      <div className="min-h-screen overflow-x-hidden text-white font-GentiumBookPlus">
 
         {/* Hero Section */}
         <div
@@ -101,7 +101,7 @@ export default function LandingPage() {
           <section className="relative text-center py-16 px-4 sm:px-6 md:px-8 text-white">
             <div className="absolute inset-0 z-0" />
             <div className="max-w-4xl mx-auto relative z-10">
-              <div className="flex flex-wrap justify-center items-center w-full sm:w-96 mx-auto gap-2 sm:gap-3 text-[#272727] px-4 py-1 text-sm font-semibold mb-6">
+              <div className="flex flex-wrap justify-center items-center w-full sm:w-96 mx-auto gap-2 sm:gap-3 text-[#272727] px-4 py- font-semibold mb-6 font-Felipa text-2xl">
                 <BsRocketTakeoffFill className='text-red-500' /> India's #1 Government Exam Platform
               </div>
               <h2 className="text-4xl sm:text-5xl font-bold mb-2 text-[#272727]">Your Dream Job</h2>
@@ -255,8 +255,8 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <Footer />
       </div>
+      <Footer />
     </>
   );
 }

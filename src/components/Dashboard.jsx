@@ -207,7 +207,7 @@ export default function Dashboard() {
   return (
     <>
       <NavBar />
-      <div className="bg-[#e0e0e04b] min-h-screen p-4">
+      <div className="bg-[#e0e0e04b] min-h-screen p-4 font-GentiumBookPlus">
         {/* Top Section */}
         <div className="flex flex-col lg:flex-row justify-between gap-6 items-start mb-7 max-w-7xl mx-auto">
           {/* Welcome/Stats */}
